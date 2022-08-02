@@ -17,6 +17,7 @@ The primary focus of this module is to be able to create Spark Entity types or t
 
 * An [Azure account](https://azure.microsoft.com/free/) with an active subscription.
 * A Microsoft Purview account (see [module 01](../modules/module01.md)).
+* Completion of steps 2, 3 and 4 from Module 10 (see [module 10](../modules/module10.md))
 
 ## :hammer: Tools
 
@@ -31,5 +32,15 @@ The primary focus of this module is to be able to create Spark Entity types or t
 
 ## Table of Contents
 1. [PyApache Atlas SDK](#1-Pyapache-atlas-SDK)
-2. [Register an Application](#2-register-an-application)
-3. [Generate a Client Secret](#3-generate-a-client-secret)
+2. [Register an Application, Generate a client secret and provide access](#2-register-an-application)
+3. Provide service principal access to Storage account
+3. Create and launch Databricks workspace
+4. Create a spark cluster
+6. Download the Pyapache Library to the cluster
+7. Create a Notebook
+8. Import the relevant packages and Connect to the Purview workspace from the databricks spark environment
+9. Create a dataframe from an existing databricks dataset
+10. Create a custom entity type to represent a spark dataframe
+
+
+
