@@ -31,16 +31,49 @@ The primary focus of this module is to be able to create Spark Entity types or t
 * Associate the entities and establish relationships during data processing
 
 ## Table of Contents
-1. [PyApache Atlas SDK](#1-Pyapache-atlas-SDK)
-2. [Register an Application, Generate a client secret and provide access](#2-register-an-application)
-3. Provide service principal access to Storage account
-3. Create and launch Databricks workspace
-4. Create a spark cluster
-6. Download the Pyapache Library to the cluster
-7. Create a Notebook
+
+1. [Register an Application, Generate a client secret](#1-register-an-application)
+2. [Provide service principal access to Storage account and create an output containner](#2-provide-access-and-create-container)
+3. [Create and launch Databricks workspace](#3-create-launch-databricks)
+4. [Create a spark cluster](#4-create-spark-cluster)
+6. [Download the Pyapache Library to the cluster]
+7. [Create a Notebook]
 8. Import the relevant packages and Connect to the Purview workspace from the databricks spark environment
 9. Create a dataframe from an existing databricks dataset
 10. Create a custom entity type to represent a spark dataframe
 
 
+## 1. Register an Application, Generate a client secret
 
+1. Please make sure to complete steps 2, 3 and 4 from Module 10 (see [module 10](../modules/module10.md)). AT this point, you should have clinetId, tenantID and secret. This information will be used to authentication the the following steps.
+
+## 2. Provide service principal access to Storage account and create an output containner 
+ 
+ 1. Navigate to your Azure Data Lake Storage Gen2 account (e.g. `pvlab{randomId}adls`) and select **Access Control (IAM)** from the left navigation menu.
+
+    ![Microsoft Purview](../images/module02/02.01-storage-access.png)
+
+2. Click **Add role assignment**.
+
+    ![Microsoft Purview](../images/module02/02.02-storage-addrole.png)
+
+3. Filter the list of roles by searching for `Storage Blob Data Reader`, click the row to select the role, and then click **Next**.
+
+    ![Access Control Role](../images/module02/02.03-access-role.png)
+
+4. Under **Assign access to**, select **User, group, or service principal**, click **+ Select members**, select **Microsoft Purview account** from the **Managed Identity** drop-down menu, select the service principal (e.g. purview-spn`), click **Select**. Finally, click **Review + assign**.
+
+    ![Access Control Members](../images/module02/02.05-access-members.png)
+
+5. Click **Review + assign** once more to perform the role assignment.
+
+    ![Access Control Assign](../images/module02/02.06-access-assign.png)
+
+6. To confirm the role has been assigned, navigate to the **Role assignments** tab and filter the **Scope** to `This resource`. You should be able to see that the Microsoft Purview managed identity has been granted the **Storage Blob Data Reader** role.
+
+    ![Role Assignment](../images/module02/02.11-role-assignment.png)
+
+7. Navigate to the containers blade on the storage account and click the '+ Container' 
+    Add screenshot
+
+## 3. Create and launch Databricks workspace 
