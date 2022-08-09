@@ -16,6 +16,7 @@ The primary focus of this module is to be able to create Spark Entity types or t
 ## :thinking: Prerequisites
 
 * An [Azure account](https://azure.microsoft.com/free/) with an active subscription.
+* An Azure Databricks workspace
 * A Microsoft Purview account (see [module 01](../modules/module01.md)).
 * Completion of steps 2, 3 and 4 from Module 10 (see [module 10](../modules/module10.md))
 
@@ -76,4 +77,16 @@ The primary focus of this module is to be able to create Spark Entity types or t
 7. Navigate to the containers blade on the storage account and click the '+ Container' 
     Add screenshot
 
-## 3. Create and launch Databricks workspace 
+## 3. Launch Databricks workspace and create a spark cluster
+
+1. Navigate to your databricks workspace and launch the workspace by clicking the 
+
+![Launch Databricks workspace](../images/module15/03.01-launch-adb-workspace.png)
+
+2. You will now be redirected to the workspace where you can create spark cluster and notebooks. In this step, we will create a spark cluster by navigating to the "Compute" Link in the left navigation menu. You will then see the "Create Cluster" link as shown below
+
+![Launch Databricks workspace](../images/module15/03.02a-launch-adb-workspace.png)
+
+You will now see a section that shows how you can configure your cluster. Please enter the info as shown in the screenshot. (We are using all default settings, except. Autoscaling is disabled, Max nodes =4 and Terminate after 60 min of in acttivity)
+ 
+ ![Launch Databricks workspace](../images/module15/03.02b-launch-adb-workspace.png)
